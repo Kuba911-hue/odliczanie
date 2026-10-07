@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odliczanie do Naszego Spotkania ❤️</title>
+    <title>Odliczanie dla Madzinki ❤️</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;1,400;1,600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -38,6 +38,15 @@
             position: relative;
             touch-action: manipulation;
             color: #fff;
+        }
+
+        /* Wymuszenie pełnokolorowych emoji na urządzeniach Apple */
+        .emoji-fix {
+            font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif !important;
+            font-style: normal !important;
+            font-weight: normal !important;
+            display: inline-block;
+            vertical-align: middle;
         }
 
         .ambient-glow {
@@ -126,6 +135,7 @@
             animation: floatDown 8.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
             filter: drop-shadow(0 8px 16px rgba(255, 133, 161, 0.4));
             touch-action: manipulation;
+            font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif !important;
         }
 
         @keyframes floatDown {
@@ -141,6 +151,7 @@
             z-index: 9999;
             font-size: 24px;
             will-change: transform, opacity;
+            font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif !important;
         }
 
         .container {
@@ -174,7 +185,7 @@
         h1 {
             font-size: 1.25rem;
             margin-top: 6px;
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.6rem;
             font-weight: 600;
             line-height: 1.45;
             color: #ffffff;
@@ -192,6 +203,12 @@
             font-size: 1.7rem;
             display: block;
             margin-top: 6px;
+        }
+
+        .emoji-banner {
+            font-size: 1.8rem;
+            margin: 10px 0 16px;
+            letter-spacing: 4px;
         }
 
         .romantic-quote {
@@ -300,8 +317,8 @@
     <div class="ambient-glow"></div>
 
     <div class="top-bar">
-        <div id="combo-pill" class="status-pill">Combo: <span id="combo-count">0</span>/3 🌹</div>
-        <div class="status-pill">Serca: <span id="score-val">0</span> 💖</div>
+        <div id="combo-pill" class="status-pill">Combo: <span id="combo-count">0</span>/3 <span class="emoji-fix">🌹</span></div>
+        <div class="status-pill">Serca: <span id="score-val">0</span> <span class="emoji-fix">💖</span></div>
     </div>
 
     <div id="floating-emojis-container"></div>
@@ -311,9 +328,17 @@
         <h1>
             Odliczanie do wyczekiwanego spotkania z
             <span class="highlight-name">
-                Moją Ukochaną Madzinką 🥰💖
+                Moją Ukochaną Madzinką
             </span>
         </h1>
+
+        <div class="emoji-banner">
+            <span class="emoji-fix">🥰</span>
+            <span class="emoji-fix">💖</span>
+            <span class="emoji-fix">👩‍❤️‍💋‍👨</span>
+            <span class="emoji-fix">💖</span>
+            <span class="emoji-fix">🥰</span>
+        </div>
 
         <div class="romantic-quote">
             „Kilometry nie mają żadnego znaczenia, gdy każda przeskakująca sekunda przybliża mnie do chwili, w której znowu bezpiecznie wezmę Cię w ramiona.”
@@ -338,17 +363,17 @@
             <div class="totals-grid">
                 <div class="total-card">
                     <span id="totalHours" class="number">00</span>
-                    <span class="label">Łącznie godzin ⏳</span>
+                    <span class="label">Łącznie godzin <span class="emoji-fix">⏳</span></span>
                 </div>
                 <div class="total-card">
                     <span id="seconds" class="number">00</span>
-                    <span class="label">Razem sekund ❤️✨</span>
+                    <span class="label">Razem sekund <span class="emoji-fix">❤️✨</span></span>
                 </div>
             </div>
         </div>
 
         <div id="finished-message" class="message">
-            Wreszcie w Twoich objęciach! 🔥🌹💖🎉
+            Wreszcie w Twoich objęciach! <span class="emoji-fix">🔥🌹💖🎉</span>
         </div>
     </div>
 
