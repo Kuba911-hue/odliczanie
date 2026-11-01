@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odliczanie dla Madzinki ❤️</title>
+    <title>Odliczanie do Naszego Spotkania ❤️</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;1,400;1,600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-silk: #fff0f3;
-            --rose-petal: #ff85a1;
-            --dusty-rose: #f7aef8;
-            --deep-velvet: #2b0b1e;
-            --velvet-wine: #4a122c;
-            --warm-gold: #f3c68f;
-            --soft-gold: #fde8cd;
-            --card-glass: rgba(43, 11, 30, 0.82);
-            --border-glow: rgba(243, 198, 143, 0.4);
+            --primary-silk: #e2e8f0;
+            --rose-petal: #38bdf8;
+            --dusty-rose: #818cf8;
+            --deep-velvet: #0f172a;
+            --velvet-wine: #1e1b4b;
+            --warm-gold: #f43f5e;
+            --soft-gold: #fda4af;
+            --card-glass: rgba(15, 23, 42, 0.85);
+            --border-glow: rgba(244, 63, 94, 0.35);
         }
 
         * {
@@ -27,7 +27,7 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: radial-gradient(circle at 50% 20%, #4a122c 0%, #2b0b1e 60%, #14030d 100%);
+            background: radial-gradient(circle at 50% 20%, #1e1b4b 0%, #0f172a 60%, #020617 100%);
             min-height: 100vh;
             min-height: 100dvh;
             display: flex;
@@ -40,7 +40,6 @@
             color: #fff;
         }
 
-        /* Wymuszenie pełnokolorowych emoji na urządzeniach Apple */
         .emoji-fix {
             font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif !important;
             font-style: normal !important;
@@ -53,7 +52,7 @@
             position: absolute;
             width: 480px;
             height: 480px;
-            background: radial-gradient(circle, rgba(255, 133, 161, 0.28) 0%, rgba(0,0,0,0) 70%);
+            background: radial-gradient(circle, rgba(244, 63, 94, 0.22) 0%, rgba(0,0,0,0) 70%);
             top: 20%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -78,7 +77,7 @@
         }
 
         .status-pill {
-            background: rgba(255, 240, 243, 0.08);
+            background: rgba(255, 255, 255, 0.06);
             border: 1px solid var(--border-glow);
             padding: 8px 18px;
             border-radius: 99px;
@@ -94,8 +93,8 @@
 
         .combo-pulse {
             transform: scale(1.12);
-            border-color: var(--rose-petal);
-            background: rgba(255, 133, 161, 0.25);
+            border-color: var(--warm-gold);
+            background: rgba(244, 63, 94, 0.25);
             color: #fff;
         }
 
@@ -106,7 +105,7 @@
             color: var(--warm-gold);
             pointer-events: none;
             z-index: 3000;
-            text-shadow: 0 0 18px rgba(255, 133, 161, 0.9);
+            text-shadow: 0 0 18px rgba(244, 63, 94, 0.9);
             animation: floatUpScore 0.85s ease-out forwards;
         }
 
@@ -133,7 +132,7 @@
             z-index: 1001 !important;
             will-change: transform, opacity;
             animation: floatDown 8.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-            filter: drop-shadow(0 8px 16px rgba(255, 133, 161, 0.4));
+            filter: drop-shadow(0 8px 16px rgba(244, 63, 94, 0.4));
             touch-action: manipulation;
             font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif !important;
         }
@@ -160,7 +159,7 @@
             padding: 2.5rem 1.8rem 2.2rem;
             border-radius: 40px;
             box-shadow: 0 35px 100px rgba(0, 0, 0, 0.85), 
-                        0 0 60px rgba(255, 133, 161, 0.15);
+                        0 0 60px rgba(244, 63, 94, 0.12);
             backdrop-filter: blur(35px);
             -webkit-backdrop-filter: blur(35px);
             max-width: 92%;
@@ -178,7 +177,7 @@
             color: var(--warm-gold);
             margin-bottom: 2px;
             display: block;
-            text-shadow: 0 0 15px rgba(243, 198, 143, 0.5);
+            text-shadow: 0 0 15px rgba(244, 63, 94, 0.5);
             line-height: 1.1;
         }
 
@@ -195,7 +194,7 @@
         .highlight-name {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            background: linear-gradient(120deg, #ffffff 10%, #f3c68f 50%, #ff85a1 100%);
+            background: linear-gradient(120deg, #ffffff 10%, #fda4af 50%, #f43f5e 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -212,7 +211,7 @@
         }
 
         .romantic-quote {
-            background: rgba(255, 240, 243, 0.05);
+            background: rgba(255, 255, 255, 0.03);
             border-left: 3px solid var(--warm-gold);
             border-right: 3px solid var(--warm-gold);
             border-radius: 16px;
@@ -235,7 +234,7 @@
 
         .time-card {
             background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(243, 198, 143, 0.2);
+            border: 1px solid rgba(244, 63, 94, 0.2);
             border-radius: 22px;
             padding: 1rem 0.3rem;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
@@ -256,7 +255,7 @@
             font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: var(--warm-gold);
+            color: var(--soft-gold);
             margin-top: 6px;
             display: block;
             font-weight: 700;
@@ -270,11 +269,11 @@
         }
 
         .total-card {
-            background: linear-gradient(135deg, rgba(255, 133, 161, 0.22), rgba(243, 198, 143, 0.15));
-            border: 1px solid rgba(255, 133, 161, 0.45);
+            background: linear-gradient(135deg, rgba(244, 63, 94, 0.18), rgba(129, 140, 248, 0.15));
+            border: 1px solid rgba(244, 63, 94, 0.4);
             border-radius: 22px;
             padding: 1.1rem 0.5rem;
-            box-shadow: 0 12px 30px rgba(255, 133, 161, 0.18);
+            box-shadow: 0 12px 30px rgba(244, 63, 94, 0.15);
             position: relative;
             overflow: hidden;
         }
@@ -286,14 +285,14 @@
             line-height: 1;
             letter-spacing: -0.5px;
             display: block;
-            text-shadow: 0 0 20px rgba(255, 133, 161, 0.85);
+            text-shadow: 0 0 20px rgba(244, 63, 94, 0.85);
         }
 
         .total-card .label {
             font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: var(--warm-gold);
+            color: var(--soft-gold);
             margin-top: 6px;
             display: block;
             font-weight: 700;
@@ -308,7 +307,7 @@
             font-weight: 800;
             color: var(--warm-gold);
             display: none;
-            text-shadow: 0 0 30px rgba(255, 133, 161, 0.95);
+            text-shadow: 0 0 30px rgba(244, 63, 94, 0.95);
         }
     </style>
 </head>
@@ -317,14 +316,14 @@
     <div class="ambient-glow"></div>
 
     <div class="top-bar">
-        <div id="combo-pill" class="status-pill">Combo: <span id="combo-count">0</span>/3 <span class="emoji-fix">🌹</span></div>
-        <div class="status-pill">Serca: <span id="score-val">0</span> <span class="emoji-fix">💖</span></div>
+        <div id="combo-pill" class="status-pill">Combo: <span id="combo-count">0</span>/3 <span class="emoji-fix">🔥</span></div>
+        <div class="status-pill">Serca: <span id="score-val">0</span> <span class="emoji-fix">❤️</span></div>
     </div>
 
     <div id="floating-emojis-container"></div>
 
     <div class="container">
-        <span class="eyebrow">Każda sekunda przybliża nas...</span>
+        <span class="eyebrow">Z każdą chwilą bliżej...</span>
         <h1>
             Odliczanie do wyczekiwanego spotkania z
             <span class="highlight-name">
@@ -333,15 +332,15 @@
         </h1>
 
         <div class="emoji-banner">
-            <span class="emoji-fix">🥰</span>
-            <span class="emoji-fix">💖</span>
+            <span class="emoji-fix">🌌</span>
+            <span class="emoji-fix">🖤</span>
             <span class="emoji-fix">👩‍❤️‍💋‍👨</span>
-            <span class="emoji-fix">💖</span>
-            <span class="emoji-fix">🥰</span>
+            <span class="emoji-fix">🖤</span>
+            <span class="emoji-fix">🔥</span>
         </div>
 
         <div class="romantic-quote">
-            „Kilometry nie mają żadnego znaczenia, gdy każda przeskakująca sekunda przybliża mnie do chwili, w której znowu bezpiecznie wezmę Cię w ramiona.”
+            „Kilometry to tylko tło, kiedy liczy się tylko to, żeby w końcu znów mocno wziąć Cię w ramiona.”
         </div>
         
         <div id="countdown">
@@ -367,19 +366,19 @@
                 </div>
                 <div class="total-card">
                     <span id="seconds" class="number">00</span>
-                    <span class="label">Razem sekund <span class="emoji-fix">❤️✨</span></span>
+                    <span class="label">Razem sekund <span class="emoji-fix">✨</span></span>
                 </div>
             </div>
         </div>
 
         <div id="finished-message" class="message">
-            Wreszcie w Twoich objęciach! <span class="emoji-fix">🔥🌹💖🎉</span>
+            Wreszcie razem, tam gdzie moje miejsce! <span class="emoji-fix">🔥🖤🥂</span>
         </div>
     </div>
 
     <script>
-        // Data docelowa: 17 Października 2026, godz. 12:00 czasu polskiego (UTC+2 / CEST)
-        const targetDate = new Date("2026-10-17T12:00:00+02:00").getTime();
+        // Data docelowa: 7 Listopada 2026, godz. 12:00 czasu polskiego (UTC+1 / CET)
+        const targetDate = new Date("2026-11-07T12:00:00+01:00").getTime();
         let lastVals = { days: "", hours: "", minutes: "", totalHours: "", seconds: "" };
         let score = 0;
         let combo = 0;
@@ -423,7 +422,7 @@
         updateCountdown();
         const intervalId = setInterval(updateCountdown, 1000);
 
-        const emojiPool = ['🌹', '💖', '🥰', '✨', '🌸', '💌', '👑', '🕊️', '💍', '🍷', '🥂'];
+        const emojiPool = ['🖤', '🔥', '✨', '🌹', '🥂', '💫', '🌙', '💫'];
         function spawnFallingEmoji() {
             const container = document.getElementById('floating-emojis-container');
             if(!container) return;
@@ -450,7 +449,7 @@
 
                 if (combo < 3) {
                     comboEl.innerText = combo;
-                    spawnGlitterBurst(x, y, 5, ['💖', '✨']);
+                    spawnGlitterBurst(x, y, 5, ['🖤', '✨']);
                     comboPill.classList.add('combo-pulse');
                     setTimeout(() => comboPill.classList.remove('combo-pulse'), 200);
                 } else {
@@ -459,8 +458,8 @@
                     score += 50;
                     document.getElementById('score-val').innerText = score;
 
-                    spawnScorePopup(x, y, '+50 MIŁOŚĆ W POWIETRZU! 🌹💖');
-                    spawnGlitterBurst(x, y, 35, ['🌹', '💖', '🥰', '✨', '🌸', '💌', '👑']);
+                    spawnScorePopup(x, y, '+50 KLIMAT! 🔥🖤');
+                    spawnGlitterBurst(x, y, 35, ['🖤', '🔥', '✨', '🥂', '🌙']);
                 }
             };
 
@@ -482,7 +481,7 @@
         }
 
         function spawnGlitterBurst(x, y, count, customPool) {
-            const pool = customPool || ['🌹', '💖', '✨', '🌸', '🥰'];
+            const pool = customPool || ['🖤', '🔥', '✨', '🥂'];
             for(let i = 0; i < count; i++) {
                 const p = document.createElement('div');
                 p.classList.add('burst-glitter');
@@ -512,7 +511,7 @@
 
         window.addEventListener('pointerdown', (e) => {
             if(!e.target.classList.contains('falling-emoji')) {
-                spawnGlitterBurst(e.clientX, e.clientY, 6, ['💖', '✨']);
+                spawnGlitterBurst(e.clientX, e.clientY, 6, ['🖤', '✨']);
             }
         });
     </script>
