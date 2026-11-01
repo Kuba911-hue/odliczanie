@@ -306,3 +306,233 @@
             letter-spacing: 1.5px;
             color: var(--soft-gold);
             margin-top: 6px;
+            display: block;
+            font-weight: 700;
+        }
+
+        .pop-animation {
+            transform: scale(1.06);
+        }
+
+        .message {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--warm-gold);
+            display: none;
+            text-shadow: 0 0 30px rgba(244, 63, 94, 0.95);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow"></div>
+
+    <div class="top-bar">
+        <div id="combo-pill" class="status-pill">Combo: <span id="combo-count">0</span>/3 <span class="emoji-fix">🔥</span></div>
+        <div class="status-pill">Serca: <span id="score-val">0</span> <span class="emoji-fix">❤️</span></div>
+    </div>
+
+    <div id="floating-emojis-container"></div>
+
+    <div class="container">
+        <span class="eyebrow">Z każdą chwilą bliżej...</span>
+        <h1>
+            Odliczanie do chwili, gdy znów będę przy
+            <span class="highlight-name">
+                Mojej Ukochanej Madzince
+            </span>
+        </h1>
+
+        <div class="emoji-banner">
+            <span class="emoji-fix">🌌</span>
+            <span class="emoji-fix">🖤</span>
+            <span class="emoji-fix">👩‍❤️‍💋‍👨</span>
+            <span class="emoji-fix">🖤</span>
+            <span class="emoji-fix">🔥</span>
+        </div>
+
+        <div class="romantic-quote">
+            „Mimo że wokół jest szaro, z tobą widzę świat w technikolorze.”
+            <span class="quote-author">— Szpaku</span>
+        </div>
+        
+        <div id="countdown">
+            <div class="countdown-grid">
+                <div class="time-card">
+                    <span id="days" class="number">00</span>
+                    <span class="label">Dni</span>
+                </div>
+                <div class="time-card">
+                    <span id="hours" class="number">00</span>
+                    <span class="label">Godzin</span>
+                </div>
+                <div class="time-card">
+                    <span id="minutes" class="number">00</span>
+                    <span class="label">Minut</span>
+                </div>
+            </div>
+
+            <div class="totals-grid">
+                <div class="total-card">
+                    <span id="totalHours" class="number">00</span>
+                    <span class="label">Łącznie godzin <span class="emoji-fix">⏳</span></span>
+                </div>
+                <div class="total-card">
+                    <span id="seconds" class="number">00</span>
+                    <span class="label">Razem sekund <span class="emoji-fix">✨</span></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="finished-message" class="message">
+            Wreszcie razem, tam gdzie moje miejsce! <span class="emoji-fix">🔥🖤🥂</span>
+        </div>
+    </div>
+
+    <script>
+        // Data docelowa: 7 Listopada 2026, godz. 12:00 czasu polskiego (CET/CEST)
+        const targetDate = new Date("2026-11-07T12:00:00+01:00").getTime();
+        let lastVals = { days: "", hours: "", minutes: "", totalHours: "", seconds: "" };
+        let score = 0;
+        let combo = 0;
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference <= 0) {
+                document.getElementById("countdown").style.display = "none";
+                document.getElementById("finished-message").style.display = "block";
+                clearInterval(intervalId);
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const totalHours = Math.floor(difference / (1000 * 60 * 60));
+            const seconds = Math.floor(difference / 1000);
+
+            const currentVals = {
+                days: days.toLocaleString('pl-PL'),
+                hours: hours.toString().padStart(2, '0'),
+                minutes: minutes.toString().padStart(2, '0'),
+                totalHours: totalHours.toLocaleString('pl-PL'),
+                seconds: seconds.toLocaleString('pl-PL')
+            };
+
+            function setWithAnimation(id, newVal) {
+                const el = document.getElementById(id);
+                if (el && lastVals[id] !== newVal) {
+                    el.innerText = newVal;
+                    el.classList.add('pop-animation');
+                    setTimeout(() => el.classList.remove('pop-animation'), 140);
+                    lastVals[id] = newVal;
+                }
+            }
+
+            setWithAnimation("days", currentVals.days);
+            setWithAnimation("hours", currentVals.hours);
+            setWithAnimation("minutes", currentVals.minutes);
+            setWithAnimation("totalHours", currentVals.totalHours);
+            setWithAnimation("seconds", currentVals.seconds);
+        }
+
+        updateCountdown();
+        const intervalId = setInterval(updateCountdown, 1000);
+
+        const emojiPool = ['🖤', '🔥', '✨', '🌹', '🥂', '💫', '🌙', '💫'];
+        function spawnFallingEmoji() {
+            const container = document.getElementById('floating-emojis-container');
+            if(!container) return;
+            const emoji = document.createElement('div');
+            emoji.classList.add('falling-emoji');
+            emoji.innerText = emojiPool[Math.floor(Math.random() * emojiPool.length)];
+            
+            emoji.style.left = Math.random() * 88 + 6 + 'vw';
+            emoji.style.fontSize = Math.random() * 14 + 28 + 'px';
+            emoji.style.animationDuration = Math.random() * 3 + 5.5 + 's';
+
+            const catchEmoji = (e) => {
+                e.stopPropagation();
+
+                const rect = emoji.getBoundingClientRect();
+                const x = rect.left + rect.width / 2;
+                const y = rect.top + rect.height / 2;
+
+                combo++;
+                emoji.remove();
+
+                const comboEl = document.getElementById('combo-count');
+                const comboPill = document.getElementById('combo-pill');
+
+                if (combo < 3) {
+                    comboEl.innerText = combo;
+                    spawnGlitterBurst(x, y, 5, ['🖤', '✨']);
+                    comboPill.classList.add('combo-pulse');
+                    setTimeout(() => comboPill.classList.remove('combo-pulse'), 200);
+                } else {
+                    combo = 0;
+                    comboEl.innerText = '0';
+                    score += 50;
+                    document.getElementById('score-val').innerText = score;
+
+                    spawnScorePopup(x, y, '+50 KLIMAT! 🔥🖤');
+                    spawnGlitterBurst(x, y, 35, ['🖤', '🔥', '✨', '🥂', '🌙']);
+                }
+            };
+
+            emoji.addEventListener('pointerdown', catchEmoji);
+
+            container.appendChild(emoji);
+            setTimeout(() => emoji.remove(), 9000);
+        }
+        setInterval(spawnFallingEmoji, 450);
+
+        function spawnScorePopup(x, y, text) {
+            const pop = document.createElement('div');
+            pop.classList.add('score-popup');
+            pop.innerText = text;
+            pop.style.left = x + 'px';
+            pop.style.top = y + 'px';
+            document.body.appendChild(pop);
+            setTimeout(() => pop.remove(), 850);
+        }
+
+        function spawnGlitterBurst(x, y, count, customPool) {
+            const pool = customPool || ['🖤', '🔥', '✨', '🥂'];
+            for(let i = 0; i < count; i++) {
+                const p = document.createElement('div');
+                p.classList.add('burst-glitter');
+                p.innerText = pool[Math.floor(Math.random() * pool.length)];
+                p.style.left = x + 'px';
+                p.style.top = y + 'px';
+                
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 220 + 70;
+                const tx = Math.cos(angle) * speed;
+                const ty = Math.sin(angle) * speed;
+                
+                document.body.appendChild(p);
+
+                p.animate([
+                    { transform: 'translate(-50%, -50%) scale(0.4)', opacity: 1 },
+                    { transform: `translate(${tx}px, ${ty}px) scale(1.7) rotate(360deg)`, opacity: 0 }
+                ], {
+                    duration: 1000,
+                    easing: 'cubic-bezier(0.1, 0.8, 0.25, 1)',
+                    fill: 'forwards'
+                });
+
+                setTimeout(() => p.remove(), 1000);
+            }
+        }
+
+        window.addEventListener('pointerdown', (e) => {
+            if(!e.target.classList.contains('falling-emoji')) {
+                spawnGlitterBurst(e.clientX, e.clientY, 6, ['🖤', '✨']);
+            }
+        });
+    </script>
+</body>
+</html>
